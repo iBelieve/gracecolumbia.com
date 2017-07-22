@@ -13,7 +13,8 @@ const nunjucks = require('nunjucks')
 const metalsmith = {
   layouts:     require('metalsmith-layouts'),
   markdown:    require('metalsmith-markdown'),
-  permalinks:  require('metalsmith-permalinks')
+  permalinks:  require('metalsmith-permalinks'),
+  path:        require('./lib/metalsmith-path')
 }
 
 const njk = nunjucks.configure('.', {
@@ -93,16 +94,20 @@ function content() {
       root: __dirname,
       use: [
         metalsmith.markdown(),
-        metalsmith.layouts({
-          engine: 'nunjucks',
-          requires: { njk },
-          partials: 'partials',
-          default: 'default.njk',
-          cache: false
-        }),
         metalsmith.permalinks({
           relative: false
-        })
+        }),
+        metalsmith.path({
+         baseDirectory : "/",
+         directoryIndex : "index.html"
+       }),
+       metalsmith.layouts({
+         engine: 'nunjucks',
+         requires: { njk },
+         partials: 'partials',
+         default: 'default.njk',
+         cache: false
+       }),
       ],
       metadata: METADATA
     }))
