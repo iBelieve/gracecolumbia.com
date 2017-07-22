@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url" content="{{ site.url }}{{ path }}" />
+  <meta property="og:title" content="{{ title }}" />
+  {#<meta name="twitter:domain" value="{{ site.url }}" />
+  <meta name="twitter:site" value="@{{ links.twitter }}" />#}
+
+  <title>{% block title %}{{ title }}{% endblock %}</title>
+
+  <link href="//cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  {% block head %}
+  {% endblock %}
+
+</head>
+<body>
+
+  {#{% include "partials/header.njk" %}#}
+
+  {% block body %}
+  <div class="container">
+      <h1>{{ title }}</h1>
+
+      {{ contents|safe }}
+    </div>
+  {% endblock %}
+
+  {% include "partials/footer.njk" %}
+
+  <script src="/js/scripts.js"></script>
+
+  {% if NODE_ENV != "production" %}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {% endif %}
+
+  {% block scripts %}{% endblock %}
+
+  {% if google_analytics %}
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', '{{ google_analytics }}', 'auto');
+
+
+      ga('require', 'cleanUrlTracker', { stripQuery: true, indexFilename: 'index.html', trailingSlash: 'append' });
+      // ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'pageVisibilityTracker');
+
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  {% endif %}
+
+</body>
+</html>
