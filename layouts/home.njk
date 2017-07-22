@@ -1,0 +1,19 @@
+{% extends "layouts/default.njk" %}
+
+{% block body %}
+  {% if banner %}
+    <div class="banner">
+      <img class="banner__background" src="{{ banner.img }}">
+      <div class="banner__content">
+        <div class="banner__left">
+          <p class="banner__text">
+            {{ banner.text|safe }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="container">
+    {{ contents|safe }}
+  </div>
+{% endblock %}
