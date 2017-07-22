@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - node
+
+cache: yarn
+
+deploy:
+  skip_cleanup: true
+
+  provider: surge
+  project: ./dist/
+  domain: gracecolumbia.surge.sh
+
+  on:
+    branch: master
+
+env:
+  global:
+    - NODE_ENV=production
