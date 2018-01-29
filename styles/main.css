@@ -1,0 +1,210 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+h1 {
+  color: #4a4a4a;
+  font-family: 'EB Garamond', serif;
+  font-size: 48px;
+  margin: 0;
+}
+
+h2 {
+  color: #4a4a4a;
+  fornt-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2em;
+}
+
+a {
+  color: #0876FC;
+}
+
+/* Navbar */
+nav {
+  background-color: #822524;
+}
+
+nav div {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav #logo {
+  width: 128px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 5px 10px;
+  padding: 5px 0;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.7); */
+  transition: all 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+  color: white;
+  /* border-bottom-color: white; */
+}
+
+.banner img {
+  width: 100%;
+}
+
+/* Banner */
+.banner {
+  background-image: url('/images/cross-sky.png');
+  height: 450px;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Main */
+.flexbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+main {
+  margin-bottom: 15px;
+}
+
+section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(26,26,26,.15);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+section.welcome,
+section.map,
+section.verse {
+  text-align: center;
+}
+
+section.welcome p {
+  font-size: 30px;
+  margin: 10px;
+}
+
+section.pastor img {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+section p {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 1.6em;
+  color: rgba(26,26,26,.7);
+}
+
+/* Footer */
+footer {
+  background-color: #efefef;
+  color: #777;
+  padding: 25px 0 10px 0;
+  text-align: center;
+}
+
+footer ul.social-media {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul.social-media li {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: rgba(26,26,26,.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer ul.social-media li a {
+  color: #efefef;
+  font-size: 22px;
+}
+
+footer .address {
+  color: rgba(26,26,26,.7);
+}
+
+footer .copyright {
+  font-size: 14px;
+  color: rgba(26,26,26,.7);
+}
+
+/* Container */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 870px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 990px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .banner {
+    height: 350px;
+    background-position: 65%;
+  }
+
+  .flexbox {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  section.pastor img {
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
