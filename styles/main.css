@@ -28,6 +28,21 @@ a {
   color: #0876FC;
 }
 
+/* Helpers */
+.flexbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  width: 50%;
+}
+
 /* Navbar */
 nav {
   background-color: #822524;
@@ -82,12 +97,6 @@ nav ul li a:active {
 }
 
 /* Main */
-.flexbox {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
 main {
   margin-bottom: 15px;
 }
@@ -201,6 +210,10 @@ footer .copyright {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .row {
+    flex-direction: column;
   }
 
   section.pastor img {
