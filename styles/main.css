@@ -48,11 +48,27 @@ nav {
   background-color: #822524;
 }
 
-nav div {
+nav .container {
   padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+nav .logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo-tag {
+  color: #812424;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+  padding: 2px 5px;
+  margin-left: 15px;
+  font-size: 13px;
 }
 
 nav #logo {
@@ -91,9 +107,9 @@ nav ul li a:active {
 /* Banner */
 .banner {
   background-image: url('/images/cross-sky.png');
-  height: 450px;
   background-position: center;
   background-size: cover;
+  height: 450px;
 }
 
 /* Main */
@@ -111,22 +127,6 @@ section:last-child {
   border-bottom: none;
 }
 
-section.welcome,
-section.map,
-section.verse {
-  text-align: center;
-}
-
-section.welcome p {
-  font-size: 30px;
-  margin: 10px;
-}
-
-section.pastor img {
-  margin-top: 20px;
-  margin-right: 20px;
-}
-
 section p {
   font-family: 'EB Garamond', serif;
   font-weight: 400;
@@ -137,11 +137,34 @@ section p {
   color: rgba(26,26,26,.7);
 }
 
+section.welcome,
+section.map,
+section.verse {
+  text-align: center;
+}
+
+section.welcome p {
+  font-size: 30px;
+  margin: 10px;
+  max-width: 675px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.pastor img {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+section.map #map {
+  max-width: 675px;
+}
+
 /* Footer */
 footer {
   background-color: #efefef;
   color: #777;
-  padding: 25px 0 10px 0;
+  padding: 25px 10px 10px 10px;
   text-align: center;
 }
 
@@ -167,13 +190,22 @@ footer ul.social-media li a {
   font-size: 22px;
 }
 
-footer .address {
+footer .contact {
   color: rgba(26,26,26,.7);
+  line-height: 1.5;
 }
 
 footer .copyright {
   font-size: 14px;
   color: rgba(26,26,26,.7);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.mobile-show {
+  display: none;
 }
 
 /* Container */
@@ -199,10 +231,33 @@ footer .copyright {
   }
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
+/* Tablet landscape */
+@media (max-width: 991px) {
   .banner {
     height: 350px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  section.welcome p {
+    font-size: 24px;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 767px) {
+  nav .container {
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .banner {
+    height: 250px;
     background-position: 65%;
   }
 
@@ -216,8 +271,44 @@ footer .copyright {
     flex-direction: column;
   }
 
+  .col {
+    width: 100%;
+  }
+
   section.pastor img {
     margin-top: 0;
     margin-right: 0;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+
+  .contact #address {
+    display: block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  section.welcome p {
+    font-size: 18px;
+  }
+
+  .contact #address {
+    margin-bottom: 10px;
+  }
+
+  .contact #phone1,
+  .contact #phone2 {
+    display: block;
+  }
+
+  .mobile-show {
+    display: block;
   }
 }

@@ -16,9 +16,15 @@
 
     <nav>
       <div class="container">
-        <a href="/"><img id="logo" src="/images/grace-logo-simple-white.png" alt="Grace logo"></a>
+        <div class="logo-wrapper">
+          <a href="/"><img id="logo" src="/images/grace-logo-simple-white.png" alt="Grace logo"></a>
+          <div class="logo-tag">
+            Sundays <br>
+            @ 10:30am
+          </div>
+        </div>
 
-        <ul>
+        <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#meet-our-pastor">Meet Our Pastor</a></li>
           <li><a href="#get-directions">Get Directions</a></li>
@@ -32,7 +38,7 @@
       <section class="container welcome" id="welcome">
         <h1>Grace Lutheran Church</h1>
         <p>
-          Proclaiming Christ Crucified, Risen and Coming Again, <br>
+          Proclaiming Christ Crucified, Risen and Coming Again,
           Through the Gospel in Word and Sacraments
         </p>
       </section>
@@ -62,8 +68,8 @@
           <h2 style="color:#822524;">Upcoming Special Services</h2>
 
           <p>Lent - Tuesday, 2/16 8:00pm</p>
-          <p>Easter - Sunday, 3/21 10:30pm</p>
-          <p>Ascension - Sunday, 3/29 10:30pm</p>
+          <p>Easter - Sunday, 3/21 10:30am</p>
+          <p>Ascension - Sunday, 3/29 10:30am</p>
 
         </div>
       </section>
@@ -88,6 +94,7 @@
       <section class="container map" id="get-directions">
         <h2>Get Directions <span class="mdi mdi-map-marker"></span></h2>
         <iframe
+          id="map"
           width="100%"
           height="450"
           frameborder="0" style="border:0"
@@ -113,7 +120,11 @@
         <li><a class="mdi mdi-youtube-play" href="http://www.youtube.com/channel/UCX1FLtvvWMxmQMtGBxZBcKQ" target="_blank"></a></li>
       </ul>
 
-      <p class="address">4540 N. Oakland Gravel Rd., Columbia, MO 65202 | Office: <a href="tel:5734748755">(573) 474-8755</a> | Cell: <a href="tel:5733565560">(573) 356-5560</a></p>
+      <p class="contact">
+        <span id="address">4540 N. Oakland Gravel Rd.,<br class="mobile-show"> Columbia, MO 65202 <span class="mobile-hide">|</span></span>
+        <span id="phone1">Office: <a href="tel:5734748755">(573) 474-8755</a> <span class="mobile-hide">|</span></span>
+        <span id="phone2">Cell: <a href="tel:5733565560">(573) 356-5560</a></span>
+      </p>
 
       <p class="copyright">© 2014-2018 Grace Lutheran Church</p>
     </footer>
