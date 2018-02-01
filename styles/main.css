@@ -70,7 +70,7 @@ nav .logo-tag {
   margin-left: 15px;
   font-size: 13px;
 
-  display: none;
+  /* display: none; */
 }
 
 nav #logo {
@@ -291,7 +291,7 @@ footer .copyright {
     display: none;
   }
 
-  .contact #address {
+  footer .contact #address {
     display: block;
   }
 }
@@ -306,12 +306,12 @@ footer .copyright {
     font-size: 18px;
   }
 
-  .contact #address {
+  footer .contact #address {
     margin-bottom: 10px;
   }
 
-  .contact #phone1,
-  .contact #phone2 {
+  footer .contact #phone1,
+  footer .contact #phone2 {
     display: block;
   }
 
