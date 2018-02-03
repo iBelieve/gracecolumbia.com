@@ -44,7 +44,7 @@
 
   &__welcome {
     p {
-      font-size: 30px;
+      font-size: 30px !important;
       margin: 10px;
       max-width: 675px;
       margin-left: auto;
@@ -95,5 +95,9 @@
 
   &__map #map {
     max-width: 675px;
+  }
+
+  &__verse {
+    background-color: transparent;
   }
 }
