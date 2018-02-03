@@ -1,11 +1,5 @@
-{% extends "layouts/default.njk" %}
-
-{% block body %}
-
 <main class="home-page">
-  {% if banner %}
-    <header class="home-page__banner" style="background: url({{ banner }}) center / cover;"></header>
-  {% endif %}
+  <header class="home-page__banner"></header>
 
   <article>
     <header class="home-page__welcome container" id="welcome">
@@ -39,7 +33,7 @@
         </ul>
       </div>
       <div class="special-services">
-        <h2 style="color:#822524;">Upcoming Special Services</h2>
+        <h2>Upcoming Special Services</h2>
 
         <p>Lent - Unkown Date</p>
         <p>Easter - Sunday, April 1 10:30am</p>
@@ -102,5 +96,3 @@
     </footer>
   </article>
 </main>
-
-{% endblock %}

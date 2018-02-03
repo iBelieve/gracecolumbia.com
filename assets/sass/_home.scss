@@ -2,6 +2,7 @@
   margin-bottom: 15px;
 
   &__banner {
+    background: url('/images/cross-sky.png') center / cover;
     height: 450px;
 
     @media (max-width: $bp-tablet-landscape) {
@@ -71,6 +72,10 @@
     .standard-services,
     .special-services {
       width: 50%;
+    }
+
+    .special-services h2 {
+      color: $primary-color;
     }
 
     @media (max-width: $bp-tablet-portrait) {
