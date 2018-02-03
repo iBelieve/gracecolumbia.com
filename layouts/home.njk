@@ -2,24 +2,10 @@
 
 {% block body %}
 
-  {# {% if banner %}
-    <div class="banner">
-      <img class="banner__background" src="{{ banner.img }}">
-      <div class="banner__content">
-        <div class="banner__left">
-          <p class="banner__text">
-            {{ banner.text|safe }}
-          </p>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-  <div class="container">
-    {{ contents|safe }}
-  </div> #}
-
 <main class="home-page">
-  <header class="home-page__banner" style="background: url({{ banner }}) center / cover;"></header>
+  {% if banner %}
+    <header class="home-page__banner" style="background: url({{ banner }}) center / cover;"></header>
+  {% endif %}
 
   <article>
     <header class="home-page__welcome container" id="welcome">
