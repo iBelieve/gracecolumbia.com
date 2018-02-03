@@ -1,0 +1,99 @@
+.home-page {
+  margin-bottom: 15px;
+
+  &__banner {
+    height: 450px;
+
+    @media (max-width: $bp-tablet-landscape) {
+      height: 350px;
+    }
+
+    @media (max-width: $bp-tablet-portrait) {
+      height: 250px;
+      background-position: 65%; // Re-center cross
+    }
+  }
+
+  article section,
+  article header,
+  article footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    p {
+      font-family: $font-primary;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      letter-spacing: 0px;
+      line-height: 1.6em;
+      color: $font-secondary-color;
+    }
+  }
+
+  &__welcome,
+  &__map,
+  &__verse {
+    text-align: center;
+  }
+
+  &__welcome {
+    p {
+      font-size: 30px;
+      margin: 10px;
+      max-width: 675px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (max-width: $bp-tablet-landscape) {
+        font-size: 24px;
+      }
+
+      @media (max-width: $bp-mobile) {
+        font-size: 18px;
+      }
+    }
+
+    small {
+      font-size: 16px;
+      font-style: italic;
+    }
+  }
+
+  &__services {
+    display: flex;
+
+    .standard-services,
+    .special-services {
+      width: 50%;
+    }
+
+    @media (max-width: $bp-tablet-portrait) {
+      flex-direction: column;
+
+      .standard-services,
+      .special-services {
+        width: 100%;
+      }
+    }
+  }
+
+  &__pastor img {
+    margin-top: 20px;
+    margin-right: 20px;
+
+    @media (max-width: $bp-tablet-portrait) {
+      margin-top: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__map #map {
+    max-width: 675px;
+  }
+}

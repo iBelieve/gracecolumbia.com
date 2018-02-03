@@ -1,0 +1,120 @@
+{% extends "layouts/default.njk" %}
+
+{% block body %}
+
+  {# {% if banner %}
+    <div class="banner">
+      <img class="banner__background" src="{{ banner.img }}">
+      <div class="banner__content">
+        <div class="banner__left">
+          <p class="banner__text">
+            {{ banner.text|safe }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="container">
+    {{ contents|safe }}
+  </div> #}
+
+<main class="home-page">
+  <header class="home-page__banner" style="background: url({{ banner }}) center / cover;"></header>
+
+  <article>
+    <header class="home-page__welcome container" id="welcome">
+      <h1>Grace Lutheran Church</h1>
+      <small>- Est. 1975 -</small>
+      <p>
+        Proclaiming Christ Crucified, Risen and Coming Again,
+        Through the Gospel in Word and Sacraments
+      </p>
+    </header>
+
+    <section class="home-page__services container" id="services">
+      <div class="standard-services">
+        <h2>Services</h2>
+
+        <p>Sunday Mornings</p>
+        <ul>
+          <li>9:30am Bible Enrichment & Sunday School</li>
+          <li>10:30am Worship Service</li>
+        </ul>
+
+        <p>Tuesday Evenings</p>
+        <ul>
+          <li>3:30pm Catechism Class</li>
+          <li>7:00pm Bible Study</li>
+        </ul>
+
+        <p>Thursday Mornings</p>
+        <ul>
+          <li>11:00am Bible Study at <a href="https://www.google.com/maps/place/2520+Broadway+Bluffs+Dr,+Columbia,+MO+65201" target="_blank">Culver's</a></li>
+        </ul>
+      </div>
+      <div class="special-services">
+        <h2 style="color:#822524;">Upcoming Special Services</h2>
+
+        <p>Lent - Unkown Date</p>
+        <p>Easter - Sunday, April 1 10:30am</p>
+        <p>Ascension - Unkown Date</p>
+      </div>
+    </section>
+
+    <section class="home-page__pastor container flexbox" id="meet-our-pastor">
+      <img src="/images/pastor.jpg" alt="Pastor Ernst">
+      <div>
+        <h2>Meet Our Pastor</h2>
+        <p>
+          Pastor Micah A. Ernst was born August 17, 1957 to August and Mildred Ernst, in Buffalo, Minnesota. He is the
+          fourth child of seven; two sisters and 4 brothers. He attended Salem Lutheran Christian Day School at Loretto,
+          Minnesota, to the 4th grade and finished his education at the public schools in Buffalo, Minnesota.
+          <br><br>
+          After high school he worked in construction for 5 years. On June 24th, 1979, Micah and Claudia, his high school
+          sweetheart, were united in Holy Matrimony. Claudia, a graduate of Dr. Martin Luther College of New Ulm,
+          Minnesota, taught school at Trinity Lutheran, Belle Plaine, Minnesota. Through much heartfelt prodding, the
+          Lord truly directed Micah to continue his education to study for the pastoral ministry.
+          <br><br>
+          This is another paragraph, need to add proper copy about pastor.
+        </p>
+      </div>
+    </section>
+
+    <section class="home-page__contact container" id="contact">
+      <h2>Contact</h2>
+      <p>
+        Have questions? Inqueries about Catechism classes? Questions about the Bible? Contact us.
+        Help I don't know what else to say here. This sounds terrible.
+      </p>
+      <p>
+        Office Phone: <a href="tel:573-474-8755">(573) 474-8755</a> <br>
+        Cell Phone: <a href="tel:573-356-5560">(573) 356-5560</a> <br>
+        E-mail: <a href="mailto:maecee@juno.com">maecee@juno.com</a> <br>
+        Address: 4540 N Oakland Gravel Rd, Columbia, MO 65202
+      </p>
+    </section>
+
+    <section class="home-page__map container" id="get-directions">
+      <h2>Get Directions <span class="mdi mdi-map-marker"></span></h2>
+      <iframe
+        id="map"
+        width="100%"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAkzTXFtcNcDchIbofBdrPofeYtm9UWlD8
+          &q=4540+N+Oakland+Gravel+Rd,Columbia,MO+65202" allowfullscreen>
+      </iframe>
+    </section>
+
+    <footer class="home-page__verse container">
+      <p>
+        <em>For by GRACE you have been saved through <br>
+        faith, and that not of yourselves; it is the gift <br>
+        of God, not of works, lest anyone boast. <br>
+        Ephesians 2:8-9</em>
+      </p>
+    </footer>
+  </article>
+</main>
+
+{% endblock %}
