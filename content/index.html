@@ -35,9 +35,9 @@
       <div class="special-services">
         <h2>Upcoming Special Services</h2>
 
-        <p>Lent - Unkown Date</p>
+        <p>Lent - Unknown Date</p>
         <p>Easter - Sunday, April 1 10:30am</p>
-        <p>Ascension - Unkown Date</p>
+        <p>Ascension - Unknown Date</p>
       </div>
     </section>
 
@@ -67,9 +67,9 @@
         Help I don't know what else to say here. This sounds terrible.
       </p>
       <p>
-        Office Phone: <a href="tel:573-474-8755">(573) 474-8755</a> <br>
-        Cell Phone: <a href="tel:573-356-5560">(573) 356-5560</a> <br>
-        E-mail: <a href="mailto:maecee@juno.com">maecee@juno.com</a> <br>
+        Office Phone: <a id="office-phone" class="office-phone"> href=""></a><br>
+        Cell Phone: <a id="cell-phone" class="cell-phone"> href=""></a><br>
+        E-mail: <a id="email" href=""></a> <br>
         Address: 4540 N Oakland Gravel Rd, Columbia, MO 65202
       </p>
     </section>
@@ -96,3 +96,61 @@
     </footer>
   </article>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  $(function() {
+    // Smooth scroll anchor links
+    $('a').on('click', function(e) {
+      if (this.hash !== "") {
+        e.preventDefault()
+        var hash = this.hash
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 500, function() {
+          window.location.hash = hash
+        })
+      }
+    })
+
+    // Rot 13/5 encoder: http://rot13.de/
+    var email = 'znrprr@whab.pbz'
+    var officePhone = '(028) 929-3200'
+    var cellPhone = '(028) 801-0015'
+
+    // Rot 13 decoder: https://stackoverflow.com/a/617685/4212315
+    function rot13(str) {
+      return str.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
+    }
+
+    // Rot 5 decoder: http://codelinks.pachanka.org/post/135631280918/rot13-and-rot5
+    function rot5(str) {
+      var s=[]
+      for(i=0;i<str.length;i++){
+        idx=str.charCodeAt(i)
+        if((idx>=48)&&(idx<=57)){
+          if(idx<=52){
+            s[i] = String.fromCharCode(((idx+ 5)))
+          }else{
+            s[i]=String.fromCharCode(((idx- 5)))
+          }
+        }else{
+          s[i]=String.fromCharCode(idx)
+        }
+      }
+      return s.join('')
+    }
+
+    $('#email').text(rot13(email))
+    $('#email').attr('href', 'mailto:' + rot13(email))
+
+    $('.office-phone').text(rot5(officePhone))
+    $('.office-phone').attr('href', 'tel:' + rot5(officePhone))
+
+    $('.cell-phone').text(rot5(cellPhone))
+    $('.cell-phone').attr('href', 'tel:' + rot5(cellPhone))
+  })
+</script>
