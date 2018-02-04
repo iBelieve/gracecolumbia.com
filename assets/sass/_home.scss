@@ -54,6 +54,10 @@
         font-size: 16px;
         font-weight: bold;
         letter-spacing: 1px;
+
+        @media (max-width: $bp-mobile) {
+          font-size: 14px;
+        }
       }
 
       p {
@@ -72,7 +76,7 @@
         }
 
         @media (max-width: $bp-mobile) {
-          font-size: 18px;
+          font-size: 20px;
         }
       }
 
