@@ -53,14 +53,3 @@ a {
     display: none;
   }
 }
-
-.flexbox {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  @media (max-width: $bp-tablet-portrait) {
-    flex-direction: column;
-    align-items: center;
-  }
-}
