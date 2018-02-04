@@ -79,6 +79,25 @@
     }
   }
 
+  &__pastor {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+
+    img {
+      margin-top: 20px;
+      margin-right: 34px;
+      margin-bottom: 34px;
+      float: left;
+      width: 296px;
+
+      @media (max-width: $bp-tablet-portrait) {
+        margin-top: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
   &__services {
     display: flex;
 
@@ -104,25 +123,6 @@
       .special-services {
         width: 100%;
       }
-    }
-  }
-
-  &__pastor {
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
-  }
-
-  &__pastor img {
-    margin-top: 20px;
-    margin-right: 34px;
-    margin-bottom: 34px;
-    float: left;
-    width: 296px;
-
-    @media (max-width: $bp-tablet-portrait) {
-      margin-top: 0;
-      margin-right: 0;
-      width: 100%;
     }
   }
 
