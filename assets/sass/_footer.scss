@@ -1,55 +1,85 @@
-footer {
-  background-color: #efefef;
-  color: #777;
-  padding: 25px 10px 10px 10px;
+.footer {
+  color: white;
   text-align: center;
 
-  .social-media {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  &__top {
+    background-color: #333333;
+    padding: 30px;
 
-    li {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      margin: 0 5px;
-      background-color: $font-secondary-color;
-      display: inline-flex;
+    .social-media {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
       align-items: center;
       justify-content: center;
 
+      li {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          color: #333333;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    background-color: #1F1F1F;
+    padding: 30px;
+
+    .contact {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
       a {
-        color: #efefef;
-        font-size: 22px;
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.2s;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      @media (max-width: $bp-tablet-portrait) {
+        #address {
+          display: block;
+        }
+      }
+
+      @media (max-width: $bp-mobile) {
+        #address {
+          margin-bottom: 10px;
+        }
+
+        #phone1,
+        #phone2 {
+          display: block;
+        }
       }
     }
-  }
 
-  .contact {
-    color: $font-secondary-color;
-    line-height: 1.5;
-
-    @media (max-width: $bp-tablet-portrait) {
-      #address {
-        display: block;
-      }
+    .copyright {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
-
-    @media (max-width: $bp-mobile) {
-      #address {
-        margin-bottom: 10px;
-      }
-
-      #phone1,
-      #phone2 {
-        display: block;
-      }
-    }
-  }
-
-  .copyright {
-    font-size: 14px;
-    color: $font-secondary-color;
   }
 }
