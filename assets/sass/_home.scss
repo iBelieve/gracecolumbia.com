@@ -3,7 +3,7 @@
 
   &__banner {
     background: url('/images/cross-sky.png') center / cover;
-    height: 400px;
+    min-height: 400px;
     position: relative;
     display: flex;
     align-items: center;
@@ -17,15 +17,15 @@
     }
 
     @media (max-width: 1440px) {
-      height: 350px;
+      min-height: 350px;
     }
 
     @media (max-width: $bp-tablet-landscape) {
-      height: 300px;
+      min-height: 300px;
     }
 
     @media (max-width: $bp-tablet-portrait) {
-      height: 200px;
+      min-height: 200px;
       background-position: 65%; // Re-center cross
     }
 
@@ -33,6 +33,7 @@
       color: white;
       text-align: center;
       z-index: 1;
+      padding: 15px;
 
       h1 {
         margin-bottom: 5px;
@@ -40,7 +41,6 @@
 
       small {
         font-size: 16px;
-        font-style: italic;
       }
 
       p {
@@ -48,13 +48,13 @@
         font-weight: 400;
         letter-spacing: 0px;
         line-height: 1.6em;
-        font-size: 24px;
+        font-size: 26px;
+        font-style: italic;
 
-        max-width: 550px;
+        max-width: 575px;
+        margin-top: 5px;
         margin-left: auto;
         margin-right: auto;
-
-        margin-top: 5px;
 
         @media (max-width: $bp-tablet-landscape) {
           font-size: 24px;
