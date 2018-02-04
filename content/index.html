@@ -31,7 +31,7 @@
     </section>
 
     <section class="home-page__services container" id="services">
-      <div class="standard-services">
+      <div id="standard-services">
         <h2>Service Times</h2>
 
         <p>Sunday Mornings:</p>
@@ -51,10 +51,14 @@
           <li>11:00am &nbsp; Bible Study at <a href="https://www.google.com/maps/place/2520+Broadway+Bluffs+Dr,+Columbia,+MO+65201" target="_blank">Culver's</a></li>
         </ul>
       </div>
-      <div class="special-services">
+      <div id="special-services">
         <h2>Upcoming Events</h2>
 
-        <p><strong>Lent</strong> - Tuesdays, Starting February 13th @ 7:00pm</p>
+        <ul>
+          <li v-for="event in upcomingEvents">
+            <strong><% event.name %></strong> - <% event.start_time | date %>
+          </li>
+        </ul>
       </div>
     </section>
 

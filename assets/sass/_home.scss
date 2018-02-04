@@ -12,8 +12,11 @@
     &:before {
       content: '';
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-    	background-color: rgba(0, 0, 0, 0.3);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: $bp-desktop) {
@@ -114,7 +117,8 @@
       }
     }
 
-    p, li {
+    p,
+    li {
       font-family: $font-primary;
       font-weight: 400;
       font-style: normal;
@@ -155,26 +159,26 @@
   &__services {
     display: flex;
 
-    .standard-services,
-    .special-services {
+    #standard-services,
+    #special-services {
       width: 50%;
     }
 
-    .standard-services {
+    #standard-services {
       p {
         font-weight: 700;
       }
     }
 
-    .special-services h2 {
+    #special-services h2 {
       color: $primary-color;
     }
 
     @media (max-width: $bp-tablet-portrait) {
       flex-direction: column;
 
-      .standard-services,
-      .special-services {
+      #standard-services,
+      #special-services {
         width: 100%;
       }
     }

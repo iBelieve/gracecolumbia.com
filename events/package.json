@@ -1,0 +1,17 @@
+{
+  "name": "gracecolumbia-events",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "micro -p 3000"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "micro": "^9.1.0",
+    "node-fetch": "^2.0.0"
+  },
+  "now": {
+    "alias": "gracecolumbia-events"
+  }
+}
