@@ -4,6 +4,17 @@
   &__banner {
     background: url('/images/cross-sky.png') center / cover;
     height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    	background-color: rgba(0, 0, 0, 0.3);
+    }
 
     @media (max-width: 1440px) {
       height: 350px;
@@ -17,10 +28,46 @@
       height: 200px;
       background-position: 65%; // Re-center cross
     }
+
+    .overlay {
+      color: white;
+      text-align: center;
+      z-index: 1;
+
+      h1 {
+        margin-bottom: 5px;
+      }
+
+      small {
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      p {
+        font-family: $font-primary;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 1.6em;
+        font-size: 24px;
+
+        max-width: 675px;
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: 5px;
+
+        @media (max-width: $bp-tablet-landscape) {
+          font-size: 24px;
+        }
+
+        @media (max-width: $bp-mobile) {
+          font-size: 18px;
+        }
+      }
+    }
   }
 
   article section,
-  article header,
   article footer {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -41,46 +88,13 @@
     }
   }
 
-  &__welcome,
   &__map,
   &__verse {
     text-align: center;
   }
 
-  &__welcome {
-    padding-top: 30px !important;
-    padding-bottom: 0 !important;
-    border-bottom: none !important;
-
-    h1 {
-      margin-bottom: 5px;
-    }
-
-    p {
-      font-size: 24px !important;
-      margin: 10px;
-      max-width: 675px;
-      margin-top: 5px;
-      margin-left: auto;
-      margin-right: auto;
-
-      @media (max-width: $bp-tablet-landscape) {
-        font-size: 24px !important;
-      }
-
-      @media (max-width: $bp-mobile) {
-        font-size: 18px !important;
-      }
-    }
-
-    small {
-      font-size: 16px;
-      font-style: italic;
-    }
-  }
-
   &__pastor {
-    padding-top: 40px !important;
+    padding-top: 60px !important;
     padding-bottom: 40px !important;
 
     img {
