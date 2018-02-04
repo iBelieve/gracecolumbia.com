@@ -7,21 +7,6 @@ body {
   color: $font-primary-color;
 }
 
-h1 {
-  color: white;
-  font-family: $font-primary;
-  font-size: 48px;
-  margin: 0;
-
-  @media (max-width: $bp-tablet-landscape) {
-    font-size: 40px;
-  }
-
-  @media (max-width: $bp-mobile) {
-    font-size: 30px;
-  }
-}
-
 h2 {
   color: $font-primary-color;
   font-weight: 400;

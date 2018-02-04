@@ -16,8 +16,8 @@
     	background-color: rgba(0, 0, 0, 0.3);
     }
 
-    @media (max-width: 1440px) {
-      min-height: 350px;
+    @media (max-width: $bp-desktop) {
+      min-height: 400px;
     }
 
     @media (max-width: $bp-tablet-landscape) {
@@ -36,11 +36,24 @@
       padding: 15px;
 
       h1 {
-        margin-bottom: 5px;
+        color: white;
+        font-family: $font-primary;
+        font-size: 48px;
+        margin: 0 0 5px 0;
+
+        @media (max-width: $bp-tablet-landscape) {
+          font-size: 40px;
+        }
+
+        @media (max-width: $bp-mobile) {
+          font-size: 30px;
+        }
       }
 
       small {
         font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
       }
 
       p {
@@ -48,13 +61,11 @@
         font-weight: 400;
         letter-spacing: 0px;
         line-height: 1.6em;
-        font-size: 26px;
+        font-size: 28px;
         font-style: italic;
 
-        max-width: 575px;
-        margin-top: 5px;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 650px;
+        margin: 5px auto 20px auto;
 
         @media (max-width: $bp-tablet-landscape) {
           font-size: 24px;
@@ -63,6 +74,18 @@
         @media (max-width: $bp-mobile) {
           font-size: 18px;
         }
+      }
+
+      .callout {
+        display: inline-block;
+        color: black;
+        background-color: white;
+        border-radius: 100px;
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
     }
   }
@@ -86,11 +109,6 @@
       line-height: 1.6em;
       color: $font-secondary-color;
     }
-  }
-
-  &__map,
-  &__verse {
-    text-align: center;
   }
 
   &__pastor {
@@ -140,11 +158,20 @@
     }
   }
 
-  &__map #map {
-    max-width: 600px;
+  &__map {
+    .address {
+      float: left;
+      width: calc(100% - 626px);
+    }
+
+    #map {
+      max-width: 626px;
+      // width: 50%;
+    }
   }
 
   &__verse {
     background-color: transparent;
+    text-align: center;
   }
 }
