@@ -25,7 +25,7 @@
     }
 
     @media (max-width: $bp-tablet-portrait) {
-      min-height: 300px;
+      min-height: 320px;
       background-position: 65%; // Re-center cross
     }
 
@@ -86,6 +86,10 @@
         font-size: 15px;
         text-transform: uppercase;
         letter-spacing: 1px;
+
+        @media (max-width: $bp-mobile) {
+          font-size: 13px;
+        }
       }
     }
   }
@@ -98,6 +102,12 @@
 
     &:last-child {
       border-bottom: none;
+    }
+
+    h2 {
+      @media (max-width: $bp-mobile) {
+        text-align: center;
+      }
     }
 
     p, li {
@@ -115,17 +125,25 @@
     padding-top: 60px !important;
     padding-bottom: 40px !important;
 
+    @media (max-width: $bp-mobile) {
+      padding-top: 40px !important;
+      padding-bottom: 20px !important;
+    }
+
     img {
-      margin-top: 20px;
-      margin-right: 34px;
-      margin-bottom: 34px;
+      margin: 22px 34px 34px 0;
       float: left;
-      width: 296px;
+      width: 100%;
+      max-width: 296px;
 
       @media (max-width: $bp-tablet-portrait) {
-        margin-top: 0;
-        margin-right: 0;
-        width: 100%;
+        max-width: 196px;
+        margin: 22px 20px 20px 0;
+      }
+
+      @media (max-width: $bp-mobile) {
+        max-width: 144px;
+        margin: 6px 10px 10px 0;
       }
     }
   }

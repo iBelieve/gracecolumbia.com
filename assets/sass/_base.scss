@@ -34,6 +34,12 @@ a {
 }
 
 .mobile-hide {
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
+.tablet-hide {
   @media (max-width: $bp-tablet-portrait) {
     display: none;
   }
