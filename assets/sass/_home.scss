@@ -175,6 +175,7 @@
 
     #map {
       max-width: 626px;
+      margin-top: 18px;
 
       @media (max-width: $bp-tablet-landscape) {
         width: 70%;
