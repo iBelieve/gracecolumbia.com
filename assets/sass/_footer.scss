@@ -15,18 +15,20 @@
       justify-content: center;
 
       li {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
         margin: 0 5px;
-        background-color: white;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
 
         a {
+          display: block;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
           color: #333333;
+          background-color: white;
+          text-decoration: none;
           font-size: 22px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }

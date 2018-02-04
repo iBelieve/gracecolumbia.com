@@ -3,7 +3,7 @@
 
   &__banner {
     background: url('/images/cross-sky.png') center / cover;
-    min-height: 400px;
+    min-height: 450px;
     position: relative;
     display: flex;
     align-items: center;
@@ -21,11 +21,11 @@
     }
 
     @media (max-width: $bp-tablet-landscape) {
-      min-height: 300px;
+      min-height: 350px;
     }
 
     @media (max-width: $bp-tablet-portrait) {
-      min-height: 200px;
+      min-height: 300px;
       background-position: 65%; // Re-center cross
     }
 
@@ -162,11 +162,28 @@
     .address {
       float: left;
       width: calc(100% - 626px);
+
+      @media (max-width: $bp-tablet-landscape) {
+        width: 30%;
+      }
+
+      @media (max-width: $bp-tablet-portrait) {
+        width: 100%;
+        float: none;
+      }
     }
 
     #map {
       max-width: 626px;
-      // width: 50%;
+
+      @media (max-width: $bp-tablet-landscape) {
+        width: 70%;
+      }
+
+      @media (max-width: $bp-tablet-portrait) {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
 
