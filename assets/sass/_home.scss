@@ -154,6 +154,14 @@
         margin: 6px 15px 15px 0;
       }
     }
+
+    > div {
+      overflow: hidden;
+
+      @media (max-width: $bp-tablet-landscape) {
+        overflow: visible;
+      }
+    }
   }
 
   &__services {
