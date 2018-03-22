@@ -1,8 +1,8 @@
-const path     = require('path')
-const gulp     = require('gulp')
-const gutil    = require('gulp-util')
-const es       = require('event-stream')
-const plugins  = require('gulp-load-plugins')({
+const path = require('path')
+const gulp = require('gulp')
+const gutil = require('gulp-util')
+const es = require('event-stream')
+const plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*'],
   replaceString: /\bgulp[\-.]/
 })
@@ -11,15 +11,15 @@ const nunjucks = require('nunjucks')
 /***** METALSMITH SETUP *****/
 
 const metalsmith = {
-  layouts:     require('metalsmith-layouts'),
-  markdown:    require('metalsmith-markdown'),
-  permalinks:  require('metalsmith-permalinks'),
-  path:        require('./lib/metalsmith-path')
+  layouts: require('metalsmith-layouts'),
+  markdown: require('metalsmith-markdown'),
+  permalinks: require('metalsmith-permalinks'),
+  path: require('./lib/metalsmith-path')
 }
 
 const njk = nunjucks.configure('.', {
   watch: false,
-  noCache : true
+  noCache: true
 })
 
 /***** GLOBAL CONSTANTS *****/
@@ -35,9 +35,7 @@ const METADATA = {
   },
   google_analytics: '',
   // description: 'It\'s about saying »Hello« to the world.',
-  links: {
-
-  }
+  links: {}
 }
 
 const PATHS = {
@@ -54,7 +52,7 @@ const PATHS = {
   styles: {
     sass: {
       src: 'assets/sass',
-      files: 'assets/sass/**/*.scss',
+      files: 'assets/sass/**/*.scss'
     },
     css: {
       src: 'assets/css',
@@ -73,60 +71,71 @@ const PATHS = {
 }
 
 function changeEvent(prefix) {
-    const ACTIONS = {
-        'add': 'added',
-        'addDir': 'added',
-        'change': 'changed',
-        'unlink': 'deleted',
-        'unlinkDir': 'deleted'
-    }
+  const ACTIONS = {
+    add: 'added',
+    addDir: 'added',
+    change: 'changed',
+    unlink: 'deleted',
+    unlinkDir: 'deleted'
+  }
 
-    return (evt, file) => {
-        gutil.log(gutil.colors.cyan(prefix), 'file', gutil.colors.green(path.relative(__dirname, file)), 'was', gutil.colors.magenta(ACTIONS[evt]));
-    }
+  return (evt, file) => {
+    gutil.log(
+      gutil.colors.cyan(prefix),
+      'file',
+      gutil.colors.green(path.relative(__dirname, file)),
+      'was',
+      gutil.colors.magenta(ACTIONS[evt])
+    )
+  }
 }
 
 /***** TASKS *****/
 
 function content() {
-  return gulp.src(PATHS.content.files)
-    .pipe(plugins.metalsmith({
-      root: __dirname,
-      use: [
-        metalsmith.markdown(),
-        metalsmith.permalinks({
-          relative: false
-        }),
-        metalsmith.path({
-         baseDirectory : "/",
-         directoryIndex : "index.html"
-       }),
-       metalsmith.layouts({
-         engine: 'nunjucks',
-         requires: { njk },
-         partials: 'partials',
-         default: 'default.njk',
-         cache: false
-       }),
-      ],
-      metadata: METADATA
-    }))
+  return gulp
+    .src(PATHS.content.files)
+    .pipe(
+      plugins.metalsmith({
+        root: __dirname,
+        use: [
+          metalsmith.markdown(),
+          metalsmith.permalinks({
+            relative: false
+          }),
+          metalsmith.path({
+            baseDirectory: '/',
+            directoryIndex: 'index.html'
+          }),
+          metalsmith.layouts({
+            engine: 'nunjucks',
+            requires: { njk },
+            partials: 'partials',
+            cache: false
+          })
+        ],
+        metadata: METADATA
+      })
+    )
     .pipe(gulp.dest(PATHS.content.dest))
 }
 
-
 function styles() {
-  const sass = gulp.src(PATHS.styles.sass.files)
+  const sass = gulp
+    .src(PATHS.styles.sass.files)
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sass({
-      outputStyle: SASS_STYLE,
-      includePaths: [PATHS.styles.sass.src]
-    }))
+    .pipe(
+      plugins.sass({
+        outputStyle: SASS_STYLE,
+        includePaths: [PATHS.styles.sass.src]
+      })
+    )
     .on('error', function(err) {
       throw new gutil.PluginError('CSS', err, { showStack: true })
     })
 
-  return es.concat(gulp.src(PATHS.styles.css.files), sass)
+  return es
+    .concat(gulp.src(PATHS.styles.css.files), sass)
     .pipe(plugins.concat('styles.css'))
     .pipe(plugins.autoprefixer('last 2 versions'))
     .pipe(IS_DEV ? gutil.noop() : plugins.cssmin())
@@ -136,7 +145,8 @@ function styles() {
 }
 
 function scripts() {
-  return gulp.src(PATHS.scripts.src)
+  return gulp
+    .src(PATHS.scripts.src)
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.babel())
     .pipe(plugins.concat('scripts.js'))
@@ -147,25 +157,25 @@ function scripts() {
 }
 
 function images() {
-  return gulp.src(PATHS.images.src, { since: gulp.lastRun(images) })
+  return gulp
+    .src(PATHS.images.src, { since: gulp.lastRun(images) })
     .pipe(plugins.size({ title: 'Images' }))
     .pipe(gulp.dest(PATHS.images.dest))
 }
 
 function watch() {
-    const server = plugins.liveServer.static('dist');
-    server.start();
+  const server = plugins.liveServer.static('dist')
+  server.start()
 
-    gulp.watch(['dist/**'])
-        .on('all', (evt, path) => server.notify({ path }))
-    gulp.watch([PATHS.content.files, PATHS.layouts.files, PATHS.partials.files], content)
-        .on('all', changeEvent('Content'))
-    gulp.watch([PATHS.styles.sass.files, PATHS.styles.css.files], styles)
-        .on('all', changeEvent('Styles'))
-    gulp.watch(PATHS.scripts.src, scripts)
-        .on('all', changeEvent('Scripts'))
-    gulp.watch(PATHS.images.src, images)
-        .on('all', changeEvent('Images'))
+  gulp.watch(['dist/**']).on('all', (evt, path) => server.notify({ path }))
+  gulp
+    .watch([PATHS.content.files, PATHS.layouts.files, PATHS.partials.files], content)
+    .on('all', changeEvent('Content'))
+  gulp
+    .watch([PATHS.styles.sass.files, PATHS.styles.css.files], styles)
+    .on('all', changeEvent('Styles'))
+  gulp.watch(PATHS.scripts.src, scripts).on('all', changeEvent('Scripts'))
+  gulp.watch(PATHS.images.src, images).on('all', changeEvent('Images'))
 }
 
 const all = gulp.parallel(content, styles, scripts, images)

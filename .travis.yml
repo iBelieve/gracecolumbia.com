@@ -9,7 +9,7 @@ deploy:
 
   provider: surge
   project: ./dist/
-  domain: gracecolumbia.surge.sh
+  domain: gracecolumbia.com
 
   on:
     branch: master
