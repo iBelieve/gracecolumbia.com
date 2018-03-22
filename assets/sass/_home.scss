@@ -178,8 +178,17 @@
       }
     }
 
-    #special-services h2 {
-      color: $primary-color;
+    #special-services {
+      display: none;
+
+      h2 {
+        color: $primary-color;
+      }
+
+      li {
+	line-height: 1.4em;
+	margin-bottom: 0.4em;
+      }
     }
 
     @media (max-width: $bp-tablet-portrait) {

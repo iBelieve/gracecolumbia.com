@@ -56,11 +56,11 @@
         </ul>
       </div>
       <div id="special-services">
-        <h2>Upcoming Events</h2>
+        <h2 v-show="upcomingEvents.length > 0">Upcoming Events</h2>
 
         <ul>
           <li v-for="event in upcomingEvents">
-            <strong><% event.name %></strong> - <% event.start_time | date %>
+            <strong><% event.name %></strong> <br> <% event.start_time | date %>
           </li>
         </ul>
       </div>

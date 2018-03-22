@@ -4,7 +4,7 @@ var app = new Vue({
   filters: {
     date: function(date) {
       // February 13th @ 7:00pm
-      return moment(date).format('MMMM Do @ h:mma')
+      return moment(date).format('dddd, MMMM Do @ h:mma')
     }
   },
   delimiters: ['<%', '%>']
@@ -12,7 +12,10 @@ var app = new Vue({
 
 fetch('https://gracecolumbia-events.now.sh/')
   .then(response => response.json())
-  .then(events => (app.upcomingEvents = events))
+  .then(events => {
+    $('#special-services').fadeIn()
+    app.upcomingEvents = events.reverse()
+  })
 
 $(function() {
   // Smooth scroll anchor links
