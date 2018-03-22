@@ -6,7 +6,6 @@ const plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*'],
   replaceString: /\bgulp[\-.]/
 })
-const nunjucks = require('nunjucks')
 
 /***** METALSMITH SETUP *****/
 
@@ -16,11 +15,6 @@ const metalsmith = {
   permalinks: require('metalsmith-permalinks'),
   path: require('./lib/metalsmith-path')
 }
-
-const njk = nunjucks.configure('.', {
-  watch: false,
-  noCache: true
-})
 
 /***** GLOBAL CONSTANTS *****/
 
@@ -45,9 +39,6 @@ const PATHS = {
   },
   layouts: {
     files: 'layouts/**'
-  },
-  partials: {
-    files: 'partials/**'
   },
   styles: {
     sass: {
@@ -107,12 +98,7 @@ function content() {
             baseDirectory: '/',
             directoryIndex: 'index.html'
           }),
-          metalsmith.layouts({
-            engine: 'nunjucks',
-            requires: { njk },
-            partials: 'partials',
-            cache: false
-          })
+          metalsmith.layouts()
         ],
         metadata: METADATA
       })
@@ -168,9 +154,7 @@ function watch() {
   server.start()
 
   gulp.watch(['dist/**']).on('all', (evt, path) => server.notify({ path }))
-  gulp
-    .watch([PATHS.content.files, PATHS.layouts.files, PATHS.partials.files], content)
-    .on('all', changeEvent('Content'))
+  gulp.watch([PATHS.content.files, PATHS.layouts.files], content).on('all', changeEvent('Content'))
   gulp
     .watch([PATHS.styles.sass.files, PATHS.styles.css.files], styles)
     .on('all', changeEvent('Styles'))
